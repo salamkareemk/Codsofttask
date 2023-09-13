@@ -1,0 +1,47 @@
+# Sample movie dataset with characteristics (same as previous example)
+movies = [
+    {
+        'title': 'Movie A',
+        'genre': ['Action', 'Adventure'],
+        'director': 'Director1',
+        'plot': 'Plot of Movie A'
+    },
+    {
+        'title': 'Movie B',
+        'genre': ['Drama', 'Romance'],
+        'director': 'Director2',
+        'plot': 'Plot of Movie B'
+    },
+    {
+        'title': 'Movie C',
+        'genre': ['Action', 'Sci-Fi'],
+        'director': 'Director1',
+        'plot': 'Plot of Movie C'
+    },
+    {
+        'title': 'Movie D',
+        'genre': ['Comedy'],
+        'director': 'Director3',
+        'plot': 'Plot of Movie D'
+    }
+]
+
+# Function to get movie recommendations based on user's preferred genre
+def get_recommendations(preferred_genre):
+    preferred_genre = preferred_genre.lower().strip()
+    recommended_movies = []
+    for movie in movies:
+        if preferred_genre in [genre.lower() for genre in movie['genre']]:
+            recommended_movies.append(movie['title'])
+    
+    return recommended_movies
+
+# Get user input for preferred genre
+preferred_genre = input('Enter your preferred movie genre: ')
+
+# Get movie recommendations based on user's preferred genre
+recommended_movies = get_recommendations(preferred_genre)
+if recommended_movies:
+    print(f'Recommended Movies in the {preferred_genre} genre: {recommended_movies}')
+else:
+    print(f'No movies found in the {preferred_genre} genre.'
